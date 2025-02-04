@@ -13,6 +13,10 @@ export class ProductService {
   async GetAllProduct (): Promise<Product[]> {
     return this.prismaService.product.findMany();
   }
+
+  async getProductById(id: number): Promise<any>{
+    return this.prismaService.product.findUnique({ where: { id } });
+  }
   
 }
 
